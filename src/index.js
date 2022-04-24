@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import Header from './components/Header/header';
+import Footer from './components/Footer/footer';
+import Error from './pages/Error/error404';
+import Home from './pages/Home/home';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Header />
+        <Routes>
+          <Route exact path="/kasa" element={<Home/>}></Route>
+          <Route path="/kasa/annonce/:annonceNumber"></Route>
+          <Route path="/kasa/404" element={<Error/>}/>
+        </Routes>
+        <Footer />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
