@@ -7,6 +7,7 @@ import Footer from './components/Footer/footer';
 import Error from './pages/Error/error404';
 import Home from './pages/Home/home';
 import reportWebVitals from './reportWebVitals';
+import Annonce from './pages/Annonce/annonce';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +15,7 @@ ReactDOM.render(
       <Header />
         <Routes>
           <Route exact path="/kasa" element={<Home/>}></Route>
-          <Route path="/kasa/annonce/:annonceNumber"></Route>
+          <Route path="/kasa/annonce/:annonceId" element={<Annonce/>}></Route>
           <Route path="/kasa/404" element={<Error/>}/>
         </Routes>
         <Footer />

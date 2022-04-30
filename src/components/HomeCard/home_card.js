@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 const CardsContainer = styled.div`
@@ -23,10 +24,12 @@ const CardsTitle = styled.p`
   left: 5px;
   bottom: 25px;
 `
-export default function HomeCard({urlImage, title}) {
+export default function HomeCard({urlImage, title, annonceId}) {
   return (
-    <CardsContainer urlImage={urlImage}>
-        <CardsTitle>{title}</CardsTitle>
-    </CardsContainer>
+    <Link to={`/kasa/annonce/${annonceId}`}>
+        <CardsContainer urlImage={urlImage}>
+            <CardsTitle>{title}</CardsTitle>
+        </CardsContainer>
+    </Link>
   )
 }

@@ -9,6 +9,7 @@ const FooterWrapper = styled.div`
   background-color: ${colors.footerBackground};
   justify-content: space-around;
   align-items: center;
+  bottom: 0;
 `
 const CardLogo = styled.img`
     height: 40px;

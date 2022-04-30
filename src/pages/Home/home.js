@@ -63,6 +63,7 @@ export default function Home() {
                 key={index}
                 urlImage={item.cover} 
                 title={item.title}
+                annonceId={item.id}
               />
           ))
           }

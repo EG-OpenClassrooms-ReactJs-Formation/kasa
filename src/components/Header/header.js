@@ -32,8 +32,8 @@ function Header() {
             <CardLogo src={logo} alt="light_logo"/>
         </Link>
         <nav>
-          <StyledLink to="/">Accueil</StyledLink>
-          <StyledLink to="/about">A propos</StyledLink>
+          <StyledLink to="/kasa">Accueil</StyledLink>
+          <StyledLink to="/kasa/about">A propos</StyledLink>
         </nav>
       </HeaderWrapper>
     )
