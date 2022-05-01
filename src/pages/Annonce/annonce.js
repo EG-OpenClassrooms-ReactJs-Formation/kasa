@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import AnnoncePropertyMark from '../../components/AnnoncePropertyMark/annonce_property_mark'
+import DropDownText from '../../components/DropDownText/dropdown_text'
 import data from '../../data/data.json'
 import colors from '../../utils/style/colors'
 
@@ -75,8 +76,8 @@ export default function Annonce() {
                     <AnnonceLocation>{annonceData.location}</AnnonceLocation>
                     <AnnonceTagContainer>
                         {
-                            annonceData.tags.map((tag) => (
-                                <AnnonceTag>{tag}</AnnonceTag>
+                            annonceData.tags.map((tag, index) => (
+                                <AnnonceTag key={index}>{tag}</AnnonceTag>
                             ))
                         }
                     </AnnonceTagContainer>
@@ -86,7 +87,7 @@ export default function Annonce() {
 
             </AnnonceGeneralInfos>
             <DropDownContainer>
-
+                <DropDownText/>
             </DropDownContainer>
         </AnnonceWrapper>
     )
