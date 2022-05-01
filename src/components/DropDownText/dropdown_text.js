@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown, faArrowDown, faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
-import { faArrowAltCircleDown } from '@fortawesome/free-regular-svg-icons'
+import { faAngleDown} from '@fortawesome/free-solid-svg-icons'
+
 const DropdownWrapper = styled.div`
     display: flex;
     flex-direction: column;
