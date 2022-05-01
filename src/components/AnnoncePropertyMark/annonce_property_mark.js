@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 const Container = styled.div`
+    max-width: 130px;
     margin-top: 15px;
     display: flex;
     flex-direction: column;
@@ -13,8 +14,11 @@ const Container = styled.div`
 `
 const PropertyRow = styled.div`
     display: flex;
+    align-items: center;
 `
 const PropertyText = styled.p`
+    padding:0;
+    font-size: 18px;
     
 `
 const ProfilePicture = styled.img`
@@ -23,6 +27,8 @@ const ProfilePicture = styled.img`
 `
 const StarsContainer = styled.div`
     display: flex;
+    justify-content: space-between;
+    width: 100%;
 `
 const StarsContainerOn = styled.div`
     color: ${colors.primary};

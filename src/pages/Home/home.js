@@ -58,13 +58,13 @@ export default function Home() {
         </BannerContainer>
         <CardsList>
           {
-            data.map((item, index) => (
-              <HomeCard
-                key={index}
-                urlImage={item.cover} 
-                title={item.title}
-                annonceId={item.id}
-              />
+          data.map((item, index) => (
+            <HomeCard
+              key={index}
+              urlImage={item.cover} 
+              title={item.title}
+              annonceId={item.id}
+            />
           ))
           }
         </CardsList>

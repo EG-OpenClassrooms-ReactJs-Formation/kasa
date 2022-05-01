@@ -8,6 +8,7 @@ import Error from './pages/Error/error404';
 import Home from './pages/Home/home';
 import reportWebVitals from './reportWebVitals';
 import Annonce from './pages/Annonce/annonce';
+import About from './pages/About/about';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,9 +17,10 @@ ReactDOM.render(
         <Routes>
           <Route exact path="/kasa" element={<Home/>}></Route>
           <Route path="/kasa/annonce/:annonceId" element={<Annonce/>}></Route>
+          <Route path="/kasa/about" element={<About/>}></Route>
           <Route path="/kasa/404" element={<Error/>}/>
         </Routes>
-        <Footer />
+      <Footer />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

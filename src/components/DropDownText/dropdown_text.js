@@ -1,20 +1,29 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
-
+import colors from '../../utils/style/colors'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown, faArrowDown, faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { faArrowAltCircleDown } from '@fortawesome/free-regular-svg-icons'
 const DropdownWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 0 1rem;
+    //padding: 0 1rem;
     border-radius: 5px;
-    border: 1px solid #ddd;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.09);
     cursor: pointer;
-    background: #fff;
+    background: ${colors.ternary};
+    color: ${colors.secondary};
     margin-bottom: 0.5em;
+    //max-height: 60px;
+    max-height: ${props => props.active ? "100%": "58.53px"};
+    width:${props => props.full===false ? "48%": "100%"};
 `
 const DropDownheader = styled.header`
     display: flex;
+    padding: 0 1rem;
+    background: ${colors.primary};
     justify-content: space-between;
+    border: 1px solid #ddd;
+    border-radius: 5px;
     column-gap: 0.2em;
 `
 const DropDownIconWrapper = styled.div`
@@ -26,9 +35,9 @@ const DropDownIconWrapper = styled.div`
     height: 25px;
     width: 25px;
     border-radius: 4px;
-    background: #dedede;
     cursor: pointer;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.09);
+    transform: ${props => props.active ? 'rotate(180deg)' : 'rotate(0deg)'};
+    transition: transform 0.25s ease;
 `
 const DropDownIcon = styled.i`
     transition: all 0.25s cubic-bezier(0.5, 0, 0.1, 1);
@@ -41,8 +50,11 @@ const DropDownTitle = styled.h4`
 `
 
 const DropDownContentWrapper = styled.div`
-    //max-height: 0;
     overflow: hidden;
+    padding: 0 1rem;
+    background: ${colors.ternary};
+    color: ${colors.primary};
+    border-radius: 5px;
     max-height: ${props => props.active ? "100%": "0"};
     opacity: ${props => (props.active ? "1" : "0")};
     /* transition: all 1s ease; */
@@ -53,32 +65,37 @@ const DropDownContentWrapper = styled.div`
 const DropDownContent = styled.p`
 
     line-height: 150%;
-    opacity: 0.8;
+    //opacity: 0.8;
 `
 
-export default function DropDownText({title, content}) {
-    const [active, setActive] = useState(false)
+export default function DropDownText({title, content, active, setActive, full}) {
+    
     function iconClick(){
         setActive(!active)
     }
-
+    const contentType = Array.isArray(content)
+    console.log(contentType)
     return (
-    <DropdownWrapper>
+    <DropdownWrapper active={active} full={full}>
         <DropDownheader>
             <DropDownTitle>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit?
+                {title}
             </DropDownTitle>
-            <DropDownIconWrapper onClick={()=>iconClick()}>
-                <DropDownIcon className='bx bx-chevron-down'></DropDownIcon>
+            <DropDownIconWrapper active={active} onClick={()=>iconClick()}>
+                <FontAwesomeIcon size={'1x'} icon={faAngleDown}/>
             </DropDownIconWrapper>
         </DropDownheader>
         <DropDownContentWrapper active={active}>
-            <DropDownContent>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elitl
-            </DropDownContent>
-            <DropDownContent>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit,Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </DropDownContent>
+            {
+            contentType === false ?
+                <DropDownContent>
+                    {content}
+                </DropDownContent>
+                :
+                content.map((element)=>(
+                    <p>{element}</p>
+                ))
+            }
         </DropDownContentWrapper>
     </DropdownWrapper>
   )

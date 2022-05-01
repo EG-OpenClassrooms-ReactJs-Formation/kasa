@@ -38,6 +38,7 @@ const AnnonceTitle = styled.h1`
     margin-top: 15px;
     font-size: 36px;
     font-weight: 500;
+    max-width: 70%;
 `
 const AnnonceLocation = styled.h2`
     font-size: 18px;
@@ -57,7 +58,8 @@ const AnnonceTag = styled.p`
     text-align: center;
 `
 const DropDownContainer = styled.div`
-
+    display: flex;
+    justify-content: space-between;
 `
 
 export default function Annonce() {
@@ -65,6 +67,9 @@ export default function Annonce() {
     const { annonceId } = useParams()
     const annonceData = data.filter(x => x.id === annonceId)[0]
 
+    const [activeEquip, setActiveEquip] = useState(false)
+    const [activeDescription, setActiveDescription] = useState(false)
+    
     return (
         <AnnonceWrapper>
             <BannerWrapper>
@@ -87,7 +92,20 @@ export default function Annonce() {
 
             </AnnonceGeneralInfos>
             <DropDownContainer>
-                <DropDownText/>
+                <DropDownText 
+                    active={activeDescription} 
+                    setActive={setActiveDescription}
+                    title={'Description'}
+                    content={annonceData.description}
+                    full={false}
+                />
+                <DropDownText 
+                    active={activeEquip} 
+                    setActive={setActiveEquip}
+                    title={'Equiment'}
+                    content={annonceData.equipments}
+                    full={false}
+                />
             </DropDownContainer>
         </AnnonceWrapper>
     )
