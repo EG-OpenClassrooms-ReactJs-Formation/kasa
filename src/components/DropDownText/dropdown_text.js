@@ -76,12 +76,12 @@ export default function DropDownText({title, content, active, setActive, full}) 
     const contentType = Array.isArray(content)
     console.log(contentType)
     return (
-    <DropdownWrapper active={active} full={full}>
+    <DropdownWrapper active={active} full={full} onClick={()=>iconClick()}>
         <DropDownheader>
             <DropDownTitle>
                 {title}
             </DropDownTitle>
-            <DropDownIconWrapper active={active} onClick={()=>iconClick()}>
+            <DropDownIconWrapper active={active}>
                 <FontAwesomeIcon size={'1x'} icon={faAngleDown}/>
             </DropDownIconWrapper>
         </DropDownheader>
@@ -92,8 +92,8 @@ export default function DropDownText({title, content, active, setActive, full}) 
                     {content}
                 </DropDownContent>
                 :
-                content.map((element)=>(
-                    <p>{element}</p>
+                content.map((element, index)=>(
+                    <p key={index}>{element}</p>
                 ))
             }
         </DropDownContentWrapper>

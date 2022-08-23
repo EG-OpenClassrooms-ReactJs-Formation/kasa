@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
@@ -7,6 +7,7 @@ import AnnoncePropertyMark from '../../components/AnnoncePropertyMark/annonce_pr
 import DropDownText from '../../components/DropDownText/dropdown_text'
 import data from '../../data/data.json'
 import colors from '../../utils/style/colors'
+import Error from '../Error/error404'
 
 const AnnonceWrapper = styled.div`
     display: flex;
@@ -87,7 +88,9 @@ const DropDownContainer = styled.div`
 export default function Annonce() {
     const [imageBannerUsed, setImageBannerUsed] = useState(0)
     const { annonceId } = useParams()
+    const navigate = useNavigate()
     const annonceData = data.filter(x => x.id === annonceId)[0]
+    const error = () => {navigate("/kasa")}
 
     const [activeEquip, setActiveEquip] = useState(false)
     const [activeDescription, setActiveDescription] = useState(false)
@@ -114,6 +117,17 @@ export default function Annonce() {
         if(sens ==='right'){
             incrementPublicationId(idPublication)
         }
+    }
+
+    useEffect(() => {
+        if (annonceData === undefined){
+            
+            navigate("/kasa/404")   
+        }
+    },[annonceData, navigate])
+    
+    if (annonceData === undefined){
+        return <Error/> 
     }
     return (
         <AnnonceWrapper>

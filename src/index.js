@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './index.css';
 import {PageWrapper} from './utils/style/atoms'
 import Header from './components/Header/header';
@@ -21,6 +21,7 @@ ReactDOM.render(
           <Route path="/kasa/annonce/:annonceId" element={<Annonce/>}></Route>
           <Route path="/kasa/about" element={<About/>}></Route>
           <Route path="/kasa/404" element={<Error/>}/>
+          <Route path="*" element={<Navigate replace to="/kasa/404" />} />
         </Routes>
       
         <Footer />
