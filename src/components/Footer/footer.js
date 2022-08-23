@@ -3,7 +3,7 @@ import logo from '../../assets/dark_logo.png'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 const FooterWrapper = styled.div`
-  height: 210px;
+  min-height: 210px;
   display: flex;
   flex-direction: column;
   background-color: ${colors.footerBackground};
