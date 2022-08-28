@@ -6,7 +6,9 @@ import DropDownText from '../../components/DropDownText/dropdown_text'
 const AboutWrapper = styled.div`
     margin-left: 5%;
     margin-right: 5%;
-    
+    @media (max-width: 768px) {
+        padding-bottom: 370px;
+    }
 `
 const BannerContainer = styled.div`
     background-image: url(${image});
@@ -27,6 +29,10 @@ const DropDownContainer = styled.div`
     margin-left: 5%;
     width: 90%;
     gap: 33px;
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-left: 0;
+    }
 `
 
 export default function About() {

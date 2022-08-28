@@ -6,5 +6,5 @@ export const PageWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    
+    min-width: 400px;
 `

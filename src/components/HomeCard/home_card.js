@@ -16,6 +16,19 @@ const CardsContainer = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     `}
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 255px;
+  
+  }
+`
+const CardsLink = styled(Link)`
+@media (max-width: 768px) {
+    
+  width: 100%;
+  height: 100%;
+  }
+  
 `
 const CardsTitle = styled.p`
   color: ${colors.secondary};
@@ -26,10 +39,10 @@ const CardsTitle = styled.p`
 `
 export default function HomeCard({urlImage, title, annonceId}) {
   return (
-    <Link to={`/kasa/annonce/${annonceId}`}>
-        <CardsContainer urlImage={urlImage}>
-            <CardsTitle>{title}</CardsTitle>
-        </CardsContainer>
-    </Link>
+    <CardsLink to={`/annonce/${annonceId}`}>
+      <CardsContainer urlImage={urlImage}>
+          <CardsTitle>{title}</CardsTitle>
+      </CardsContainer>
+    </CardsLink>
   )
 }

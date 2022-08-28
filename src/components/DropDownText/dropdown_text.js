@@ -16,6 +16,10 @@ const DropdownWrapper = styled.div`
     //max-height: 60px;
     max-height: ${props => props.active ? "100%": "58.53px"};
     width:${props => props.full===false ? "48%": "100%"};
+    @media (max-width: 768px) {
+        max-height: ${props => props.active ? "100%": "32px"};
+        
+    }
 `
 const DropDownheader = styled.header`
     display: flex;
@@ -25,26 +29,40 @@ const DropDownheader = styled.header`
     border: 1px solid #ddd;
     border-radius: 5px;
     column-gap: 0.2em;
+    
+    @media (max-width: 768px) {
+        height: 30px;
+        font-size: 13px;
+        align-items: center;
+        
+    }
 `
 const DropDownIconWrapper = styled.div`
     margin-top: 1rem;
     flex: 0 0 25px;
     display: grid;
     place-items: center;
-    font-size: 1.25rem;
+    //font-size: 1.25rem;
     height: 25px;
     width: 25px;
     border-radius: 4px;
     cursor: pointer;
     transform: ${props => props.active ? 'rotate(180deg)' : 'rotate(0deg)'};
     transition: transform 0.25s ease;
+    @media (max-width: 768px) {
+        
+        padding-bottom: 14px;
+        transform: ${props => props.active ? 'translateY(-14px) rotate(180deg)' : 'rotate(0deg)'};
+
+        transition: transform 0.25s ease;
+    }
 `
 const DropDownIcon = styled.i`
     transition: all 0.25s cubic-bezier(0.5, 0, 0.1, 1);
 `
 
 const DropDownTitle = styled.h4`
-    font-size: 1em;
+    //font-size: 1em;
     line-height: 1;
     font-weight: 500;
 `
@@ -60,7 +78,9 @@ const DropDownContentWrapper = styled.div`
     /* transition: all 1s ease; */
     //transition: all 0.25s cubic-bezier(0.5, 0, 0.1, 1);
     transition: all 0.3s;
-
+    @media (max-width: 768px) {
+        font-size: 12px;
+    }
 `
 const DropDownContent = styled.p`
 

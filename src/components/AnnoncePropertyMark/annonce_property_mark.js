@@ -10,25 +10,46 @@ const Container = styled.div`
     flex-direction: column;
     color: ${colors.primary};
     align-items: flex-end;
-
+    @media (max-width: 768px) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        max-width: 100%;
+        align-items: center;
+        margin-top: 0px;
+    }
 `
 const PropertyRow = styled.div`
     display: flex;
     align-items: center;
+    @media (max-width: 768px) {
+        
+        max-width: 90px;
+    }
 `
 const PropertyText = styled.p`
     padding:0;
     font-size: 18px;
-    
+    @media (max-width: 768px) {
+        
+        font-size: 12px;
+    }
 `
 const ProfilePicture = styled.img`
     border-radius: 60px;
     height: 64px;
+    @media (max-width: 768px) {
+        
+        height: 36px;
+    }
 `
 const StarsContainer = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
+    @media (max-width: 768px) {
+        
+        max-width: 20%;
+    }
 `
 const StarsContainerOn = styled.div`
     color: ${colors.primary};

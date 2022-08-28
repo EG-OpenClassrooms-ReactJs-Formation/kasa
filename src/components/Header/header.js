@@ -10,10 +10,18 @@ const StyledLink = styled(Link)`
   &:hover {
     text-decoration: underline;
   }
+  @media (max-width: 768px) {
+    font-size: 12px;
+  
+  }
 `
 
 const CardLogo = styled.img`
     height: 68px;
+    @media (max-width: 768px) {
+      height: 42px;
+  
+  }
 `
 
 const HeaderWrapper = styled.div`
@@ -23,17 +31,18 @@ const HeaderWrapper = styled.div`
   align-items: center;
   margin-left: 5%;
   margin-right: 5%;
+
 `
 function Header() {
     
     return (
       <HeaderWrapper>
-        <Link to={"/kasa"}>
+        <Link to={"/"}>
             <CardLogo src={logo} alt="light_logo"/>
         </Link>
         <nav>
-          <StyledLink to="/kasa">Accueil</StyledLink>
-          <StyledLink to="/kasa/about">A propos</StyledLink>
+          <StyledLink to="/">Accueil</StyledLink>
+          <StyledLink to="/about">A propos</StyledLink>
         </nav>
       </HeaderWrapper>
     )

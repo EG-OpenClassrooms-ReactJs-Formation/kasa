@@ -21,6 +21,9 @@ const BannerContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 768px) {
+      height: 111px;
+    }
 `
 const BannerText = styled.p`
     color: ${colors.secondary};
@@ -48,6 +51,11 @@ const CardsList = styled.div`
   justify-content: center;
   background-color: ${colors.ternary};
   border-radius: 15px;
+  @media (max-width: 768px) {
+    background-color: ${colors.secondary};
+    flex-direction: column;
+  
+  }
 `
 export default function Home() {
 
