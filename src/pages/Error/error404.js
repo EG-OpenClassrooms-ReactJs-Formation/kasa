@@ -31,7 +31,7 @@ export default function Error() {
     <ErrorWrapper>
       <ErrorNumber>404</ErrorNumber>
       <ErrorTitle>Oups! La page que vous demandez n'existe pas.</ErrorTitle>
-      <ErrorSubtitle to={"/kasa"}>
+      <ErrorSubtitle to={"/"}>
         Retourner à la page d'acceuil
       </ErrorSubtitle>
     </ErrorWrapper>

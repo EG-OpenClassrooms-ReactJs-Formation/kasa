@@ -6,6 +6,7 @@ import DropDownText from '../../components/DropDownText/dropdown_text'
 const AboutWrapper = styled.div`
     margin-left: 5%;
     margin-right: 5%;
+    padding-bottom: 260px;
     @media (max-width: 768px) {
         padding-bottom: 370px;
     }
